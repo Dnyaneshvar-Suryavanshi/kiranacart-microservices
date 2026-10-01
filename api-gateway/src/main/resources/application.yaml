@@ -6,11 +6,13 @@ spring:
     name: api-gateway
   cloud:
     gateway:
-      routes:
-        - id: catalog-service
-          uri: lb://CATALOG-SERVICE
-          predicates:
-            - Path=/api/catalog/**
+      server:
+        webmvc:
+          routes:
+            - id: catalog-service
+              uri: lb://CATALOG-SERVICE
+              predicates:
+                - Path=/api/catalog/**
 
 eureka:
   client:
