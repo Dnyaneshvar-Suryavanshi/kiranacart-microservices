@@ -13,7 +13,10 @@ spring:
               uri: lb://CATALOG-SERVICE
               predicates:
                 - Path=/api/catalog/**
-
+            - id: auth-service
+              uri: lb://AUTH-SERVICE
+              predicates:
+                - Path=/api/auth/**
 eureka:
   client:
     service-url:
